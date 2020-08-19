@@ -1,0 +1,11 @@
+transient/
+.dap-breakpoints
+auto-save-list/
+.cache/
+.lsp-session*
+elpa/
+eshell/
+projectile-bookmarks.eld
+recentf
+var/
+*.elc
