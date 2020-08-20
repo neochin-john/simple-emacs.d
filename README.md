@@ -2,6 +2,8 @@
 
 ![screenshot](./docs/images/screenshot.png)
 
+![screenshot latex](./docs/images/screenshot-latex.png)
+
 > Just works in `Emacs 27+`, linux (LinuxMint20 tested).
 
 This is a simple configuration, less variables & less key bindings.
@@ -28,6 +30,7 @@ As code in `init.el`:
 (require 'init-projectile)
 (require 'init-magit)
 
+(require 'init-tex)
 (require 'init-lsp)
 (require 'init-c)
 (require 'init-python)
@@ -36,7 +39,7 @@ As code in `init.el`:
 
 # Usage.
 
-Some useful tips:
+## Some useful tips
 
 | case                          | command                         | key binding |
 |-------------------------------|---------------------------------|-------------|
@@ -53,3 +56,14 @@ Some useful tips:
 | git status                    | magit-status                    |             |
 
 
+## For write latex doc
+
+| case                             | command            | key binding |
+|----------------------------------|--------------------|-------------|
+| run tex command (compile pdf...) | TeX-command-master | C-c C-c     |
+| view pdf (after compiled)        | TeX-view           | C-c C-v     |
+
+It's convenient to view the updated pdf after compile every time:
+
+- Use `M-x: view-file` to open `target.pdf`.
+- Then set mode `auto-revert-mode` to true.
