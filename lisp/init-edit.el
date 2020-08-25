@@ -1,5 +1,6 @@
 (show-paren-mode t)
 (delete-selection-mode t)
+(recentf-mode t)
 (prefer-coding-system 'utf-8)
 
 (setq auto-save-default nil

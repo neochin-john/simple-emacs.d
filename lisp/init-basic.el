@@ -11,13 +11,14 @@
 
 (use-package diminish)
 (use-package bind-key)
+(use-package hydra)
 (use-package which-key
   :diminish
   :hook (after-init . which-key-mode))
 
-(use-package nyan-mode
-  :config (setq nyan-bar-length 16)
-  :hook (after-init . nyan-mode))
+;; (use-package nyan-mode
+;;   :config (setq nyan-bar-length 16)
+;;   :hook (after-init . nyan-mode))
 
 (use-package exec-path-from-shell
   :config

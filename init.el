@@ -9,10 +9,11 @@
 (require 'init-highlight)
 (require 'init-window)
 (require 'init-treemacs)
-(require 'init-markdown)
 (require 'init-projectile)
 (require 'init-magit)
+(require 'init-flycheck)
 
+(require 'init-markdown)
 (require 'init-tex)
 (require 'init-lsp)
 (require 'init-c)
@@ -25,7 +26,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(tex auctex magit modern-cpp-font-lock markdown-toc ivy-yasnippet company-quickhelp s ivy-prescient company-prescient company avy counsel which-key goto-line-preview goto-char-preview goto-last-point goto-chg diffview nyan-mode diminish benchmark-init use-package)))
+   '(flycheck cider-hydra ivy-hydra treemacs-projectile tex auctex magit modern-cpp-font-lock markdown-toc ivy-yasnippet company-quickhelp s ivy-prescient company-prescient company avy counsel which-key goto-line-preview goto-char-preview goto-last-point goto-chg diffview nyan-mode diminish benchmark-init use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -12,7 +12,9 @@
 
 
 (use-package lsp-ui
-  :diminish)
+  :diminish
+  :config
+  (setq lsp-ui-doc-position 'top))
 
 (use-package lsp-ivy
   :diminish
