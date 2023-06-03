@@ -16,15 +16,13 @@
   :diminish
   :hook (after-init . which-key-mode))
 
-;; (use-package nyan-mode
-;;   :config (setq nyan-bar-length 16)
-;;   :hook (after-init . nyan-mode))
+(use-package nyan-mode
+  :config (setq nyan-bar-length 16)
+  :hook (after-init . nyan-mode))
 
+;; Environment
 (use-package exec-path-from-shell
-  :config
-  (setq exec-path-from-shell-check-startup-files nil
-	exec-path-from-shell-variables '("PATH" "MANPATH")
-	exec-path-from-shell-arguments '("-l"))
-  (exec-path-from-shell-initialize))
+  :init (exec-path-from-shell-initialize))
 
+(setq image-types (cons 'svg image-types))
 (provide 'init-basic)
