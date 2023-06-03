@@ -7,7 +7,8 @@
                display-buffer-in-side-window)
               (side            . bottom)
               (reusable-frames . visible)
-              (window-height   . 0.15))))
+              (window-height   . 0.15)))
+  (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (provide 'init-flycheck)
 
