@@ -1,5 +1,5 @@
-(setq package-archives '(("gnu" . "http://1.15.88.122/gnu/")
-			 ("melpa" . "http://1.15.88.122/melpa/")))
+(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 ;; Emacs 27 bug report #31397:
 ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=31397

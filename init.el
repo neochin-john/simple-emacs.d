@@ -25,7 +25,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(tango-dark))
  '(package-selected-packages
    '(flycheck cider-hydra ivy-hydra treemacs-projectile tex auctex magit modern-cpp-font-lock markdown-toc ivy-yasnippet company-quickhelp s ivy-prescient company-prescient company avy counsel which-key goto-line-preview goto-char-preview goto-last-point goto-chg diffview nyan-mode diminish benchmark-init use-package)))
 (custom-set-faces
@@ -34,3 +33,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(lsp-ui-sideline-code-action ((t (:inherit warning)))))
+
