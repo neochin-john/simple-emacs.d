@@ -21,8 +21,15 @@
   :hook (after-init . nyan-mode))
 
 ;; Environment
-(use-package exec-path-from-shell
-  :init (exec-path-from-shell-initialize))
+(if sys/win32p
+    (add-to-list 'process-coding-system-alist
+                 '("cmdproxy" utf-8 . gbk))
+  (set-selection-coding-system 'utf-8))
+
+(when (or sys/mac-x-p sys/linux-x-p (daemonp))
+  (use-package exec-path-from-shell
+    :custom (exec-path-from-shell-arguments '("-l"))
+    :init (exec-path-from-shell-initialize)))
 
 (setq image-types (cons 'svg image-types))
 (provide 'init-basic)
