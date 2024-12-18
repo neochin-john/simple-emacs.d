@@ -7,6 +7,26 @@
       make-backup-files nil)
 (setq show-trailing-whitespace t)
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq whitespace-style
+      '(face
+        tabs
+        spaces
+        ;; trailing
+        ;; lines
+        ;; space-before-tab
+        ;; newline
+        indentation
+        empty
+        space-after-tab
+        space-mark
+        tab-mark
+        ;; newline-mark
+        missing-newline-at-eof))
+(global-whitespace-mode t)
+
+
 (use-package diffview)
 
 (use-package goto-chg
@@ -58,5 +78,15 @@
 
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+     ("C->" . mc/mark-next-like-this)
+     ("C-<" . mc/mark-previous-like-this)
+     ("C-c C-<" . mc/mark-all-like-this)
+     ("C-\"" . mc/skip-to-next-like-this)
+     ("C-:" . mc/skip-to-previous-like-this)))
+
 
 (provide 'init-edit)
