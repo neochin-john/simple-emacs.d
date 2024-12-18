@@ -10,3 +10,4 @@ recentf
 var/
 *.elc
 eln-cache/
+.mc-lists.el
