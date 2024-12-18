@@ -1,6 +1,6 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(set-face-attribute 'default nil :height 200)
+;; (set-face-attribute 'default nil :height 200)
 (setq warning-minimum-level :emergency)
 (setq package-gnupghome-dir (concat user-emacs-directory "elpa/gnupg"))

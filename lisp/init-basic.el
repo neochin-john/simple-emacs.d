@@ -16,6 +16,11 @@
   :diminish
   :hook (after-init . which-key-mode))
 
+(use-package gruber-darker-theme
+  :ensure t)
+  ;; :config
+  ;; (load-theme 'gruber-darker t))
+
 (use-package nyan-mode
   :config (setq nyan-bar-length 16)
   :hook (after-init . nyan-mode))
