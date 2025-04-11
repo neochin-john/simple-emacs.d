@@ -25,6 +25,7 @@
         ;; newline-mark
         missing-newline-at-eof))
 (global-whitespace-mode t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
 (use-package diffview)

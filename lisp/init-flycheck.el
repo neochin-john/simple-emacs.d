@@ -1,5 +1,5 @@
 (use-package flycheck
-  :hook (prog-mode . flycheck-mode)
+  ;; :hook (prog-mode . flycheck-mode)
   :config
   (add-to-list 'display-buffer-alist
              `(,(rx bos "*Flycheck errors*" eos)
@@ -11,4 +11,3 @@
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (provide 'init-flycheck)
-
