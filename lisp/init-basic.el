@@ -8,6 +8,9 @@
 
 (global-display-line-numbers-mode t)
 
+(setq fill-column 80)
+(global-display-fill-column-indicator-mode t)
+
 ; show path if names are same
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 

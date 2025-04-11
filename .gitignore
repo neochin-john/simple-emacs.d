@@ -10,4 +10,5 @@ recentf
 var/
 *.elc
 eln-cache/
+projects
 .mc-lists.el
