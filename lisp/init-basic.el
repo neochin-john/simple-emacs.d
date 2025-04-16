@@ -39,7 +39,7 @@
 
 (when (or sys/mac-x-p sys/linux-x-p (daemonp))
   (use-package exec-path-from-shell
-    :custom (exec-path-from-shell-arguments '("-l"))
+    :custom (exec-path-from-shell-arguments '("-l" "-i"))
     :init (exec-path-from-shell-initialize)))
 
 (setq image-types (cons 'svg image-types))
