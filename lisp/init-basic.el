@@ -9,7 +9,7 @@
 (global-display-line-numbers-mode t)
 
 (global-display-fill-column-indicator-mode t)
-(setq-default fill-column 80)
+(setq-default fill-column 100)
 
 ; show path if names are same
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)

@@ -89,5 +89,20 @@
      ("C-\"" . mc/skip-to-next-like-this)
      ("C-:" . mc/skip-to-previous-like-this)))
 
+(defun insert-windows-clipboard ()
+  "Insert the current content of the Windows clipboard at point using PowerShell and iconv.
+Also remove Windows-style line endings (^M)."
+  (interactive)
+  (let ((clipboard-text
+         (with-temp-buffer
+           (call-process-shell-command
+            "powershell.exe -Command Get-Clipboard | iconv -f gbk -t utf-8"
+            nil t)
+           ;; 删除 ^M（即 \r）
+           (goto-char (point-min))
+           (while (re-search-forward "\r" nil t)
+             (replace-match ""))
+           (buffer-string))))
+    (insert clipboard-text)))
 
 (provide 'init-edit)
