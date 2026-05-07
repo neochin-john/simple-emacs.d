@@ -12,3 +12,5 @@ var/
 eln-cache/
 projects
 .mc-lists.el
+tramp
+
