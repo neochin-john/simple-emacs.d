@@ -29,7 +29,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7"
+   '("1ee152da54a554d3f2a634da326ba36a49ebfa838c3928c0fa546487d1ac7598"
+     "e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7"
      "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" default))
  '(display-line-numbers-type 'relative)
  '(package-selected-packages
@@ -51,6 +52,6 @@
  ;; If there is more than one, they won't work right.
  '(lsp-ui-sideline-code-action ((t (:inherit warning))))
  '(whitespace-empty ((t (:extend t :background "gray11" :foreground "#ffdd33"))))
- '(whitespace-indentation ((t (:extend t :background "#00000000" :foreground "#505050"))))
- '(whitespace-space ((t (:extend t :background "#00000000" :foreground "#505050"))))
- '(whitespace-tab ((t (:extend t :background "#00000000" :foreground "#505050")))))
+ '(whitespace-indentation ((t (:extend t :background "#00000000" :foreground "#404040"))))
+ '(whitespace-space ((t (:extend t :background "#00000000" :foreground "#404040"))))
+ '(whitespace-tab ((t (:extend t :background "#00000000" :foreground "#404040")))))
