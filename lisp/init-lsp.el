@@ -26,7 +26,20 @@
 
 (use-package lsp-treemacs
   :diminish
-  :after lsp-mode)
+  :after lsp-mode
+  :config
+  ;; Workaround: `lsp-defun' expands (&optional ...) alongside destructuring into
+  ;; extra mandatory INPUTn slots; callers pass 3 args → wrong-number-of-arguments.
+  ;; See emacs-lsp/lsp-protocol `lsp-defun' vs lsp-treemacs call hierarchy ret-action.
+  (defun lsp-treemacs--call-hierarchy-ret-action (item &optional callsite-start callsite-uri)
+    "Build the ret action for a call hierarchy item.
+Prefer CALLSITE-START and CALLSITE-URI when provided."
+    (-let (((&CallHierarchyItem :uri :selection-range (&Range :start)) item))
+      (let ((target-uri (or callsite-uri uri))
+            (target-start (or callsite-start start)))
+        (lsp-treemacs--open-file-in-mru (lsp--uri-to-path target-uri))
+        (goto-char (lsp--position-to-point target-start))
+        (run-hooks 'xref-after-jump-hook)))))
 
 (use-package dap-mode
   :diminish
