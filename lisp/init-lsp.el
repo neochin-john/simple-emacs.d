@@ -1,19 +1,13 @@
 (use-package lsp-mode
   :hook ((prog-mode
-	  . (lambda ()
+          . (lambda ()
               (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode)
                 (lsp-deferred))))
          (lsp-mode . lsp-enable-which-key-integration))
-  :bind (:map lsp-mode-map
-              ([remap xref-find-definitions] . lsp-find-definition)
-              ([remap xref-find-references] . lsp-find-references))
   :init
   ;; @see https://github.com/emacs-lsp/lsp-mode#performance
   (setq read-process-output-max (* 1024 1024))
-  (setq lsp-keymap-prefix "C-c l")
-  ;; disable RET autoformat
-  (setq lsp-enable-on-type-formatting nil))
-
+  (setq lsp-keymap-prefix "C-c l"))
 
 (use-package lsp-ui
   :diminish
