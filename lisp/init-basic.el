@@ -14,6 +14,11 @@
 ; show path if names are same
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
+(savehist-mode 1)
+(setq history-length 1000)
+(setq history-delete-duplicates t)
+(setq savehist-autosave-interval 60)
+
 (use-package wgrep)
 (use-package diminish)
 (use-package bind-key)

@@ -13,4 +13,6 @@ eln-cache/
 projects
 .mc-lists.el
 tramp
+bookmarks
+history
 
