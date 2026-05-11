@@ -9,3 +9,6 @@
 
 (setq ring-bell-function 'ignore)
 (setq visible-bell nil)
+
+(setq custom-file
+      (expand-file-name "custom.el" user-emacs-directory))

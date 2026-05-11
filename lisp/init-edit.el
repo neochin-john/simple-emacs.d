@@ -3,6 +3,9 @@
 (recentf-mode t)
 (prefer-coding-system 'utf-8)
 
+;; duplicate-line, and move cursor to next line
+(setq duplicate-line-final-position -1)
+
 (setq auto-save-default nil
       make-backup-files nil)
 (setq show-trailing-whitespace t)
