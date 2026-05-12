@@ -22,6 +22,8 @@
 (require 'init-web)
 (require 'init-go)
 
+(require 'init-ai)
+
 (load custom-file t)
 
 (custom-set-faces

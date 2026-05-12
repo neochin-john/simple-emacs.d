@@ -27,8 +27,7 @@
   :diminish
   :hook (after-init . which-key-mode))
 
-(use-package gruber-darker-theme
-  :ensure t)
+(use-package gruber-darker-theme)
   ;; :config
   ;; (load-theme 'gruber-darker t))
 

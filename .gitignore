@@ -1,18 +1,54 @@
-transient/
-.dap-breakpoints
-auto-save-list/
-.cache/
-.lsp-session*
+# --- straight.el (cloned/built locally; not tracked) ---
+# If you later use straight-freeze-versions and commit lock files, ignore only
+# subdirs and use `!` rules for straight/versions/ instead.
+straight/
+
+# --- package.el leftovers (if you mixed package managers) ---
 elpa/
-eshell/
-projectile-bookmarks.eld
-recentf
-var/
+
+# --- Emacs runtime / cache ---
+auto-save-list/
+transient/
 *.elc
 eln-cache/
+.cache/
+url/
+request/
+server/
+network-security.data
+org-persist/
+semanticdb/
+image-dired/
+tutorial/
+games/
+newsticker/
+
+# --- Sessions, history, local state ---
+recentf
+history
+bookmarks
+places
+saveplace
+projectile-bookmarks.eld
 projects
 .mc-lists.el
 tramp
-bookmarks
-history
+eshell/
+var/
 
+# --- LSP / DAP / toolchain ---
+.lsp-session*
+.lsp-eslint-*
+.dap-breakpoints
+irony/
+anaconda-mode/
+tree-sitter/
+
+# --- Magit / Forge (if enabled) ---
+forge-database.sqlite*
+
+# --- Misc ---
+*~
+\#*\#
+.DS_Store
+Thumbs.db
