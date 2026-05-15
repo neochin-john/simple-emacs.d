@@ -1,7 +1,9 @@
 (use-package counsel
   :diminish ivy-mode counsel-mode
   :hook ((after-init . ivy-mode)
-         (ivy-mode . counsel-mode)))
+         (ivy-mode . counsel-mode))
+  :config
+  (setq counsel-fzf-cmd "fd --exclude .git --exclude node_modules --color never '%s'"))
 (use-package ivy-prescient
   :diminish
   :hook ((ivy-mode . ivy-prescient-mode)
