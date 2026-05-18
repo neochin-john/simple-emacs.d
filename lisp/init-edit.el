@@ -1,7 +1,7 @@
 (show-paren-mode t)
 (delete-selection-mode t)
 (recentf-mode t)
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-unix)
 
 ;; duplicate-line, and move cursor to next line
 (setq duplicate-line-final-position -1)

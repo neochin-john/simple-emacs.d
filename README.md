@@ -12,6 +12,12 @@ Original tasty Emacs? ugly? But I like it, at least now.
 
 Encouraged by [Centaur Emacs](https://github.com/seagle0128/.emacs.d), very appreciated.
 
+# AI
+create `~/.emacs.d/secrets.el`(or modify `init-ai.el` by your self):
+```
+(setq my-deepseek-key "sk-key")
+```
+
 # Feat.
 
 As code in `init.el`:

@@ -52,3 +52,6 @@ forge-database.sqlite*
 \#*\#
 .DS_Store
 Thumbs.db
+
+# -- AI API Keys, etc. --
+secrets.el

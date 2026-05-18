@@ -1,5 +1,12 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+;; read secrets.el to get api keys, etc.
+(let ((secret-file
+       (expand-file-name "secrets.el"
+                         user-emacs-directory)))
+  (when (file-exists-p secret-file)
+    (load secret-file)))
+
 (require 'init-const)
 (require 'init-package)
 (require 'init-basic)
