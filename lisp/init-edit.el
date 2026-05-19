@@ -5,6 +5,7 @@
 
 ;; duplicate-line, and move cursor to next line
 (setq duplicate-line-final-position -1)
+(global-set-key (kbd "M-S-<down>") #'duplicate-dwim)
 
 (setq auto-save-default nil
       make-backup-files nil)
