@@ -15,7 +15,7 @@ Encouraged by [Centaur Emacs](https://github.com/seagle0128/.emacs.d), very appr
 # AI
 create `~/.emacs.d/secrets.el`(or modify `init-ai.el` by your self):
 ```
-(setq my-deepseek-key "sk-key")
+(setq my/llm/deepseek-key "sk-key")
 ```
 
 # Feat.

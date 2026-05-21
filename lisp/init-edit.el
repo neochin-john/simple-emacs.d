@@ -84,13 +84,39 @@
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
+;; multiple-cursors only replays self-insert-command on fake cursors. Unconditionally
+;; rebind electric keys in the buffer local map (same approach as local-set-key for
+;; < and >); save the previous binding for restore instead of hard-coding c-mode.
+(defvar my/mc-keys-for-self-insert
+  '("(" ")" "{" "}" "[" "]" "<" ">" "'" "\"" ";" "," ":")
+  "Keys to rebind to self-insert-command while multiple-cursors-mode is active.")
+
+(defvar-local my/mc-saved-local-keys nil
+  "Alist of (KEY-STRING . COMMAND) saved before mc local key overrides.")
+
+(defun my/mc-override-electric-keys ()
+  (setq my/mc-saved-local-keys nil)
+  (dolist (key my/mc-keys-for-self-insert)
+    (let ((kbd (kbd key)))
+      (push (cons key (key-binding kbd)) my/mc-saved-local-keys)
+      (local-set-key kbd #'self-insert-command))))
+
+(defun my/mc-restore-electric-keys ()
+  (dolist (pair my/mc-saved-local-keys)
+    (local-set-key (kbd (car pair)) (cdr pair)))
+  (setq my/mc-saved-local-keys nil))
+
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
-     ("C->" . mc/mark-next-like-this)
-     ("C-<" . mc/mark-previous-like-this)
-     ("C-c C-<" . mc/mark-all-like-this)
-     ("C-\"" . mc/skip-to-next-like-this)
-     ("C-:" . mc/skip-to-previous-like-this)))
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)
+         ("C-\"" . mc/skip-to-next-like-this)
+         ("C-:" . mc/skip-to-previous-like-this))
+  :init
+  ;; Register hooks at startup (always-defer delays :config until first use).
+  (add-hook 'multiple-cursors-mode-enabled-hook #'my/mc-override-electric-keys)
+  (add-hook 'multiple-cursors-mode-disabled-hook #'my/mc-restore-electric-keys))
 
 (defun insert-windows-clipboard ()
   "Insert the current content of the Windows clipboard at point using PowerShell and iconv.

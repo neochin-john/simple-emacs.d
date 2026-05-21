@@ -3,66 +3,66 @@
   :commands (gptel gptel-send)
   :init
   ;; from secrets.el
-  ;; (setq my-deepseek-key "sk-xxxx")
+  ;; (setq my/llm/deepseek-key "sk-xxxx")
   :config
   ;; use url.el to avoid curl escape on windows
   (when sys/win32p
     (setq gptel-use-curl nil))
 
-  (setq my-deepseek-backend
+  (setq my/llm/deepseek-backend
         (gptel-make-deepseek "DeepSeek"
                              :stream t
                              :key (lambda ()
-                                    my-deepseek-key)))
-  (setq my-moonshot-backend
+                                    my/llm/deepseek-key)))
+  (setq my/llm/moonshot-backend
         (gptel-make-openai "Moonshot"
                            :stream t
                            :host "api.moonshot.cn"
                            :protocol "https"
                            :endpoint "/v1/chat/completions"
                            :key (lambda ()
-                                  my-moonshot-key)
+                                  my/llm/moonshot-key)
                            ;; https://platform.kimi.com/docs/models
                            :models '(kimi-k2.6 kimi-k2.5)))
-  (setq my-zhipu-backend
+  (setq my/llm/zhipu-backend
         (gptel-make-openai "Zhipu"
                            :stream t
                            :host "open.bigmodel.cn"
                            :protocol "https"
                            :endpoint "/api/paas/v4/chat/completions"
                            :key (lambda ()
-                                  my-zhipu-key)
+                                  my/llm/zhipu-key)
                            ;; https://bigmodel.cn/pricing
                            :models '(glm-5.1
                                      glm-4.7-flash
                                      glm-4.7
                                      glm-4.5-air)))
-  (setq my-qwen-backend
+  (setq my/llm/qwen-backend
         (gptel-make-openai "Qwen"
                            :stream t
                            :host "dashscope.aliyuncs.com"
                            :protocol "https"
                            :endpoint "/compatible-mode/v1/chat/completions"
                            :key (lambda ()
-                                  my-qwen-key)
+                                  my/llm/qwen-key)
                            ;; https://bailian.console.aliyun.com/cn-beijing?spm=5176.12818093_47.resourceCenter.1.53b616d0Q5NYxY&tab=doc#/doc/?type=model&url=3026903
                            ;; https://bailian.console.aliyun.com/cn-beijing?spm=5176.12818093_47.resourceCenter.1.53b616d0Q5NYxY&tab=doc#/doc/?type=model&url=2987148
                            :models '(qwen3.6-plus
                                      qwen3.6-flash)))
-  (setq my-minimax-backend
+  (setq my/llm/minimax-backend
         (gptel-make-openai "Minimax"
                            :stream t
                            :host "api.minimaxi.com"
                            :protocol "https"
                            :endpoint "/v1/chat/completions"
                            :key (lambda ()
-                                  my-minimax-key)
+                                  my/llm/minimax-key)
                            ;; https://platform.minimaxi.com/docs/guides/models-intro
                            :models '(MiniMax-M2.7
                                      MiniMax-M2.7-highspeed
                                      MiniMax-M2.5
                                      MiniMax-M2.5-highspeed)))
-  (setq my-githubmodels-backend
+  (setq my/llm/githubmodels-backend
         (gptel-make-openai "GithubModels"
                            :stream t
                            ;; :host "models.inference.ai.azure.com"
@@ -72,33 +72,33 @@
                            :protocol "https"
                            :endpoint "/inference/chat/completions"
                            :key (lambda ()
-                                  my-githubmodels-key)
+                                  my/llm/githubmodels-key)
                            ;; https://github.com/marketplace/models
                            :models '(gpt-4o
                                      gpt-4o-mini
                                      Meta-Llama-3.1-405B-Instruct
                                      Meta-Llama-3.1-8B-Instruct)))
-  (setq my-cherryin-backend
+  (setq my/llm/cherryin-backend
         (gptel-make-openai "CherryIN"
                            :stream t
                            :host "open.cherryin.net"
                            :protocol "https"
                            :endpoint "/v1/chat/completions"
                            :key (lambda ()
-                                  my-cherryin-key)
+                                  my/llm/cherryin-key)
                            ;; https://github.com/marketplace/models
                            :models '("agent/deepseek-v3.2(free)"
                                      "deepseek/deepseek-v4-flash(free)")))
   (setq gptel-backends
-        (list my-deepseek-backend
-              my-moonshot-backend
-              my-zhipu-backend
-              my-qwen-backend
-              my-minimax-backend
-              my-githubmodels-backend
-              my-cherryin-backend))
+        (list my/llm/deepseek-backend
+              my/llm/moonshot-backend
+              my/llm/zhipu-backend
+              my/llm/qwen-backend
+              my/llm/minimax-backend
+              my/llm/githubmodels-backend
+              my/llm/cherryin-backend))
   (setq gptel-backend
-        my-cherryin-backend)
+        my/llm/cherryin-backend)
   ;; current free model: glm-4.7-flash
   (setq gptel-model "deepseek/deepseek-v4-flash(free)"))
 
