@@ -32,6 +32,7 @@
 (require 'init-ai)
 
 (load custom-file t)
+(setq confirm-kill-emacs #'y-or-n-p)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

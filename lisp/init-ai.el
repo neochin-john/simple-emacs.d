@@ -5,9 +5,9 @@
   ;; from secrets.el
   ;; (setq my/llm/deepseek-key "sk-xxxx")
   :config
-  ;; use url.el to avoid curl escape on windows
+  ;; avoid curl escape on windows, use `--data-binary @xx.json`
   (when sys/win32p
-    (setq gptel-use-curl nil))
+    (setq gptel-curl-file-size-threshold 0))
 
   (setq my/llm/deepseek-backend
         (gptel-make-deepseek "DeepSeek"
