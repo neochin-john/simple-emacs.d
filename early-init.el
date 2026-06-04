@@ -1,5 +1,18 @@
 (setq package-enable-at-startup nil)
 
+;; On MSys2, GPG is an MSys2 binary that expects Unix-style paths
+;; like "/d/msys64/...".  package.el computes a Windows-style path
+;; "d:/msys64/..." which GPG treats as relative, producing a broken
+;; path like "/home/leo/d:/msys64/.../pubring.kbx".
+(when (and (eq system-type 'windows-nt) (getenv "MSYSTEM"))
+  (let* ((win-path (expand-file-name "gnupg"
+                                     (expand-file-name "elpa" user-emacs-directory)))
+         (unix-path (if (string-match "\\`\\([a-zA-Z]\\):" win-path)
+                        (concat "/" (downcase (match-string 1 win-path))
+                                (substring win-path 2))
+                      win-path)))
+    (setq package-gnupghome-dir unix-path)))
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
