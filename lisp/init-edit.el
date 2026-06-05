@@ -134,4 +134,27 @@ Also remove Windows-style line endings (^M)."
            (buffer-string))))
     (insert clipboard-text)))
 
+(defun my/fn/copy-range-line-number (arg)
+  "Copy the current region's line range as \"#START-END\" to clipboard.
+With prefix ARG (\\[universal-argument]), prompt for a base directory and
+prepend the relative file path: \"@REL/PATH#START-END\"."
+  (interactive "P")
+  (if (use-region-p)
+      (let* ((start (line-number-at-pos (region-beginning)))
+             (end   (line-number-at-pos (region-end)))
+             (range (if (= start end)
+                        (format "#%d" start)
+                      (format "#%d-%d" start end)))
+             (prefix (when arg
+                       (let ((base (read-directory-name "Base directory: ")))
+                         (concat "@"
+                                 (file-relative-name
+                                  (buffer-file-name)
+                                  base)))))
+             (s     (concat prefix range)))
+        (kill-new s)
+        (funcall interprogram-cut-function s)
+        (message "Copied: %s" s))
+    (user-error "No active region")))
+
 (provide 'init-edit)
