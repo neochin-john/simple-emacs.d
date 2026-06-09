@@ -7,7 +7,18 @@
   :init
   ;; @see https://github.com/emacs-lsp/lsp-mode#performance
   (setq read-process-output-max (* 1024 1024))
-  (setq lsp-keymap-prefix "C-c l"))
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  ;; MSYS2 npm uses Unix-style bin/ layout even on Windows;
+  ;; lsp-mode's lsp--npm-dependency-path omits "bin/" on windows-nt.
+  (when (eq system-type 'windows-nt)
+    (eval-after-load 'lsp-javascript
+      (lambda ()
+        (let ((npm-root (expand-file-name ".cache/lsp/npm" user-emacs-directory)))
+          (lsp-dependency 'typescript-language-server
+                          `(:system ,(concat npm-root "/typescript-language-server/bin/typescript-language-server")))
+          (lsp-dependency 'typescript
+                          `(:system ,(concat npm-root "/typescript/bin/tsserver"))))))))
 
 (use-package lsp-ui
   :diminish
