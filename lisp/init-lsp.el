@@ -12,6 +12,8 @@
   ;; MSYS2 npm uses Unix-style bin/ layout even on Windows;
   ;; lsp-mode's lsp--npm-dependency-path omits "bin/" on windows-nt.
   (when (eq system-type 'windows-nt)
+    (when (getenv "MSYSTEM")
+      (add-to-list 'exec-path (concat (getenv "USERPROFILE") "/.cargo/bin")))
     (eval-after-load 'lsp-javascript
       (lambda ()
         (let ((npm-root (expand-file-name ".cache/lsp/npm" user-emacs-directory)))
@@ -53,7 +55,11 @@ Prefer CALLSITE-START and CALLSITE-URI when provided."
 
 (use-package cmake-mode
   :mode ("CMakeLists\\.txt\\'" "\\.cmake\\'")
-  :hook (cmake-mode . lsp-deferred))
+  :hook (cmake-mode . lsp-deferred)
+  :init
+  (when (and (eq system-type 'windows-nt) (getenv "MSYSTEM"))
+    (setq lsp-cmake-server-command
+          `(,(concat (getenv "USERPROFILE") "/.cargo/bin/neocmakelsp.exe") "stdio"))))
 
 (use-package cmake-font-lock
   :after cmake-mode

@@ -55,3 +55,6 @@ Thumbs.db
 
 # -- AI API Keys, etc. --
 secrets.el
+
+# -- Claude Code --
+.claude/
