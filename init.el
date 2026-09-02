@@ -28,6 +28,7 @@
 (require 'init-python)
 (require 'init-web)
 (require 'init-go)
+(require 'init-rust)
 
 (require 'init-ai)
 
