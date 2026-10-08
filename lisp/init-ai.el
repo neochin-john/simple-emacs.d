@@ -62,6 +62,17 @@
                                      MiniMax-M2.7-highspeed
                                      MiniMax-M2.5
                                      MiniMax-M2.5-highspeed)))
+  (setq my/llm/mimo-backend
+        (gptel-make-openai "Mimo"
+                           :stream t
+                           :host "api.xiaomimimo.com"
+                           :protocol "https"
+                           :endpoint "/v1/chat/completions"
+                           :key (lambda ()
+                                  my/llm/mimo-key)
+                           ;; https://platform.minimaxi.com/docs/guides/models-intro
+                           :models '(mimo-v2.6-flash
+                                     mimo-v2.6-pro)))
   (setq my/llm/githubmodels-backend
         (gptel-make-openai "GithubModels"
                            :stream t
@@ -95,6 +106,7 @@
               my/llm/zhipu-backend
               my/llm/qwen-backend
               my/llm/minimax-backend
+              my/llm/mimo-backend
               my/llm/githubmodels-backend
               my/llm/cherryin-backend))
   (setq gptel-backend
