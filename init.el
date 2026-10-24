@@ -31,6 +31,7 @@
 (require 'init-rust)
 
 (require 'init-ai)
+(require 'xcscope)
 
 (load custom-file t)
 (setq confirm-kill-emacs #'y-or-n-p)
