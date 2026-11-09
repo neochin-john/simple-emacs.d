@@ -112,7 +112,7 @@
   (setq gptel-backend
         my/llm/cherryin-backend)
   ;; current free model: glm-4.7-flash
-  (setq gptel-model "deepseek/deepseek-v4-flash(free)"))
+  (setq gptel-model "agent/deepseek-v3.2(free)"))
 
 (use-package wingman
   :straight (:type git :host github :repo "mjrusso/wingman")

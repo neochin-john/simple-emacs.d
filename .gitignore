@@ -58,3 +58,7 @@ secrets.el
 
 # -- Claude Code --
 .claude/
+
+
+projectile-frecency.eld
+
