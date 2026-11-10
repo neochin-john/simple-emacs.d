@@ -8,6 +8,7 @@
     (load secret-file)))
 
 (require 'init-const)
+(require 'init-proxy)
 (require 'init-package)
 (require 'init-basic)
 (require 'init-edit)
